@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="games">
+        <item>Chess</item>
+        <item>Business Tour</item>
+        <item>Nation Building</item>
+    </string-array>
+    <string-array name="games_desc">
+        <item>This is a very fun chess game. Play it to experience it
+        </item>
+        <item>Be on a quest to travel around the world to build your business.</item>
+        <item>If you like playing SIMS4, this game is for you!</item>
+    </string-array>
+    <string-array name="player_number">
+        <item>7 teams</item>
+        <item>8 teams</item>
+        <item>11 teams</item>
+    </string-array>
+
+    <array name="games_picture">
+        <item>@drawable/a</item>
+        <item>@drawable/b</item>
+        <item>@drawable/c</item>
+    </array>
+</resources>

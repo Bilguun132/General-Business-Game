@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/summary_tab"
+        android:enabled="true"
+        android:title="Summary"
+        android:icon="@drawable/ic_bookmark_border_black_24dp"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/finance_tab"
+        android:enabled="true"
+        android:title="Finance"
+        android:icon="@drawable/icons8_coins_24px"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/rnd_tab"
+        android:enabled="true"
+        android:title="RnD"
+        android:icon="@drawable/icons8_experiment_24px"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/marketing_tab"
+        android:enabled="true"
+        android:title="Marketing"
+        android:icon="@drawable/icons8_advertising_24px"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/production_tab"
+        android:enabled="true"
+        android:title="Production"
+        android:icon="@drawable/icons8_prototype_24px"
+        app:showAsAction="ifRoom"/>
+</menu>

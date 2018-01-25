@@ -1,0 +1,81 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/research_dev_fragment_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="fyp.generalbusinessgame.Activity.ResearchDevFragment">
+
+
+    <LinearLayout
+        android:id="@+id/rnd_information_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible">
+
+            <EditText
+                android:id="@+id/rnd_cost"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:drawableTint="#FF4081"
+                android:hint="Current Expenditure"
+                android:inputType="none"
+                android:maxLines="1" />
+
+        </android.support.design.widget.TextInputLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/rnd_history_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="100dp"
+        android:orientation="vertical">
+
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/rnd_decisions_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:baselineAligned="false"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible">
+
+            <EditText
+                android:id="@+id/rnd_invest_value"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:drawableTint="#FF4081"
+                android:hint="Yearly Expenditure"
+                android:inputType="text"
+                android:maxLines="1" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/rnd_invest_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#d67601"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:text="Adjust expenditure"
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+</FrameLayout>

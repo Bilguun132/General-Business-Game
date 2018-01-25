@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="fyp.generalbusinessgame">
+
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_app_icon"
+        android:label="FYP Game"
+        android:roundIcon="@mipmap/ic_app_icon"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="fyp.generalbusinessgame.Activity.LoginActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="fyp.generalbusinessgame.Activity.MainView"
+            android:label="My Profile" />
+        <activity
+            android:name="fyp.generalbusinessgame.Activity.GameViewActivity"
+            android:parentActivityName="fyp.generalbusinessgame.Activity.MainView">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="fyp.generalbusinessgame.Activity.MainView" />
+        </activity>
+        <activity
+            android:name="fyp.generalbusinessgame.Activity.SettingsActivity"
+            android:label="Settings"
+            android:parentActivityName="fyp.generalbusinessgame.Activity.LoginActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="fyp.generalbusinessgame.Activity.LoginActivity" />
+            android:label="@string/title_activity_settings">
+        </activity>
+        <activity
+            android:name="fyp.generalbusinessgame.Activity.GameTypeSelectionActivity"
+            android:label="Game Types" />
+        <activity
+            android:name="fyp.generalbusinessgame.Activity.GameSummaryActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="fyp.generalbusinessgame.Activity.BalanceSheetActivity"
+            android:windowSoftInputMode="adjustPan"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_balance_sheet"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name="fyp.generalbusinessgame.Activity.IncomeStatementActivity"
+            android:windowSoftInputMode="adjustPan"
+            android:label="@string/title_activity_income_statement"
+            android:theme="@style/FullscreenTheme" />
+        <activity android:name="fyp.generalbusinessgame.Activity.MarketingActivity" />
+        <activity android:name="fyp.generalbusinessgame.Activity.ProductionActivity" />
+        <activity android:name="fyp.generalbusinessgame.Activity.ResearchDevActivity"></activity>
+    </application>
+
+</manifest>
