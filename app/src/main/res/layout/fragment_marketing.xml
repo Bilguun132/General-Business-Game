@@ -1,4 +1,4 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/marketing_fragment_container"
     android:orientation="vertical"
@@ -54,43 +54,105 @@
         android:layout_marginBottom="100dp"
         android:orientation="vertical"></FrameLayout>
 
-    <LinearLayout
-        android:id="@+id/marketing_decisions_layout"
+    <TableLayout
+        android:id="@+id/marketing_decisions_table"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:baselineAligned="false"
-        android:gravity="bottom"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom">
 
-        <android.support.design.widget.TextInputLayout
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:ems="10"
+                android:inputType="none"
+                android:text="0"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionMode.Subtitle" />
+
+            <android.support.v7.widget.AppCompatButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:layout_weight="0.5"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:text="Invest New Product"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="18sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:ems="10"
+                android:inputType="none"
+                android:text="0"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionMode.Subtitle" />
+
+            <android.support.v7.widget.AppCompatButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:layout_weight="0.5"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:text="Adjust advertising"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="18sp" />
+
+        </TableRow>
+
+        <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="visible">
+            android:orientation="horizontal"
+            android:weightSum="2">
 
             <EditText
                 android:id="@+id/marketing_selling_price"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:drawableTint="#FF4081"
                 android:hint="Selling Price"
                 android:inputType="text"
                 android:maxLines="1" />
-        </android.support.design.widget.TextInputLayout>
 
-        <android.support.v7.widget.AppCompatButton
-            android:id="@+id/marketing_change_selling_price_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#d67601"
-            android:clickable="true"
-            android:foreground="?attr/selectableItemBackground"
-            android:text="Adjust selling price"
-            android:textAllCaps="false"
-            android:textColor="#fff"
-            android:textSize="18sp" />
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/marketing_change_selling_price_button"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:text="Adjust selling price"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="18sp" />
+        </TableRow>
 
-    </LinearLayout>
+    </TableLayout>
 
 
-</FrameLayout>
+</RelativeLayout>
