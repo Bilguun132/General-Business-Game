@@ -10,3 +10,6 @@ gradlew
 /build
 /captures
 .externalNativeBuild
+gradlew
+.idea/modules.xml
+.idea/misc.xml
