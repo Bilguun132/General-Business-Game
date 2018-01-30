@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TableLayout;
 
 import fyp.generalbusinessgame.Models.GamePeriodModel;
 import fyp.generalbusinessgame.R;
@@ -47,7 +48,7 @@ public class FinanceFragment extends Fragment {
 
         getActivity().setTitle("Finance Summary. Period: " + gamePeriodModel.periodNumber);
 
-        LinearLayout financeInfoLayout = view.findViewById(R.id.finance_view_financial_information);
+        TableLayout financeInfoLayout = view.findViewById(R.id.finance_decisions_table);
 
         switch (gamePeriodModel.status) {
             case 0:

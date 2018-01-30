@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TableLayout;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -110,7 +111,7 @@ public class MarketingFragment extends Fragment {
         mainview = inflater.inflate(R.layout.fragment_marketing, container, false);
 
         LinearLayout marketing_information_layout = mainview.findViewById(R.id.marketing_information_layout);
-        LinearLayout marketing_decisions_layout = mainview.findViewById(R.id.marketing_decisions_layout);
+        TableLayout marketing_decisions_layout = mainview.findViewById(R.id.marketing_decisions_table);
         getActivity().setTitle("Marketing Summary. Period: " + gamePeriodModel.periodNumber);
 
 //        switch (gamePeriodModel.status) {
