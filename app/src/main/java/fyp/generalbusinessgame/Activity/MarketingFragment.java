@@ -23,11 +23,17 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.github.mikephil.charting.charts.LineChart;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import fyp.generalbusinessgame.Activity.dummy.DummyContent;
@@ -203,12 +209,20 @@ public class MarketingFragment extends Fragment {
                         ListFragment newList = new ListFragment();
                         DummyContent newDummyContent = new DummyContent();
                         newDummyContent.ITEMS.clear();
+                        LineChart chart = (LineChart) mainview.findViewById(R.id.chart);
+                        List<Entry> prices = new ArrayList<Entry>();
                         for (int i = 0; i < incomeStatementModel.marketingDecisions.size(); i++) {
                             newDummyContent.ITEMS.add(new DummyContent.DummyItem("Price Change", incomeStatementModel.marketingDecisions.get(i).price, "Market Change"));
+                            prices.add(new Entry(Float.parseFloat(incomeStatementModel.marketingDecisions.get(i).price), i+1));
                         }
+                        LineDataSet dataSet = new LineDataSet(prices, "Price Change");
+                        LineData lineData = new LineData(dataSet);
+                        chart.setData(lineData);
+                        chart.invalidate(); // refresh
                         newList.dummyContent = newDummyContent;
                         transaction.replace(R.id.marketing_history_layout, newList);
                         transaction.commit();
+
                     }
                 }, new Response.ErrorListener() {
             @Override

@@ -33,5 +33,6 @@ dependencies {
     compile 'com.google.code.gson:gson:2.8.2'
     compile 'com.android.volley:volley:1.0.0'
     compile 'com.ashokvarma.android:bottom-navigation-bar:2.0.4'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
     testCompile 'junit:junit:4.12'
 }
