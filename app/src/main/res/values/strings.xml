@@ -20,7 +20,7 @@
 
     <string name="domain_name">http://54.254.189.150/</string>
     <string name="domain_name_key">domain_name_key</string>
-    <string name="subdomain_name">fypwebapi/</string>
+    <string name="subdomain_name">FypWebApiBusiness/</string>
     <string name="subdomain_name_key">subdomain_name_key</string>
     <string name="authentication_token_key">authentication_token_key</string>
     <string name="shared_preference_key">shared_preference_key</string>
