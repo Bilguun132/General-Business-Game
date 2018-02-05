@@ -1,4 +1,4 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/research_dev_fragment_container"
     android:layout_width="match_parent"
@@ -9,9 +9,9 @@
     <LinearLayout
         android:id="@+id/rnd_information_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:visibility="gone">
+        android:visibility="visible">
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -34,48 +34,55 @@
         android:id="@+id/rnd_history_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="100dp"
+        android:layout_above="@+id/rnd_decisions_table"
+        android:layout_below="@+id/rnd_information_layout"
         android:orientation="vertical">
 
 
     </FrameLayout>
 
-    <LinearLayout
-        android:id="@+id/rnd_decisions_layout"
+    <TableLayout
+        android:id="@+id/rnd_decisions_table"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:baselineAligned="false"
-        android:gravity="bottom"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
 
-        <android.support.design.widget.TextInputLayout
+        <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="visible">
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="false"
+            android:orientation="horizontal"
+            android:weightSum="2">
 
-            <EditText
-                android:id="@+id/rnd_invest_value"
-                android:layout_width="fill_parent"
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:drawableTint="#FF4081"
-                android:hint="Yearly Expenditure"
-                android:inputType="text"
-                android:maxLines="1" />
-        </android.support.design.widget.TextInputLayout>
+                android:layout_weight="1"
+                android:visibility="visible">
 
-        <android.support.v7.widget.AppCompatButton
-            android:id="@+id/rnd_invest_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#d67601"
-            android:clickable="true"
-            android:foreground="?attr/selectableItemBackground"
-            android:text="Adjust expenditure"
-            android:textAllCaps="false"
-            android:textColor="#fff"
-            android:textSize="18sp" />
+                <EditText
+                    android:id="@+id/rnd_invest_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:drawableTint="#FF4081"
+                    android:hint="Yearly Expenditure"
+                    android:inputType="text"
+                    android:maxLines="1" />
+            </android.support.design.widget.TextInputLayout>
 
-    </LinearLayout>
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/rnd_invest_button"
+                style="@android:style/Widget.Material.Button.Colored"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:text="Adjust expenditure"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="18sp" />
+        </TableRow>
+    </TableLayout>
 
-</FrameLayout>
+</RelativeLayout>

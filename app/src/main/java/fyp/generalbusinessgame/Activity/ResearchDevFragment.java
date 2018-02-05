@@ -133,7 +133,7 @@ public class ResearchDevFragment extends Fragment implements DownloadCallback<Ht
             });
 
         LinearLayout rnd_information_layout = mainview.findViewById(R.id.rnd_information_layout);
-        LinearLayout rnd_decisions_layout = mainview.findViewById(R.id.rnd_decisions_layout);
+        LinearLayout rnd_decisions_layout = mainview.findViewById(R.id.rnd_decisions_table);
 
 //        switch (gamePeriodModel.status) {
 //            case 0:

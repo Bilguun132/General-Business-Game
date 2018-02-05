@@ -10,14 +10,15 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_app_icon"
-        android:label="FYP Game"
-        android:roundIcon="@mipmap/ic_app_icon"
+        android:icon="@mipmap/ic_app_icon_1"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_app_icon_1"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
             android:name="fyp.generalbusinessgame.Activity.LoginActivity"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,9 +28,11 @@
         </activity>
         <activity
             android:name="fyp.generalbusinessgame.Activity.MainView"
+            android:screenOrientation="portrait"
             android:label="My Profile" />
         <activity
             android:name="fyp.generalbusinessgame.Activity.GameViewActivity"
+            android:screenOrientation="portrait"
             android:parentActivityName="fyp.generalbusinessgame.Activity.MainView">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -37,6 +40,7 @@
         </activity>
         <activity
             android:name="fyp.generalbusinessgame.Activity.SettingsActivity"
+            android:screenOrientation="portrait"
             android:label="Settings"
             android:parentActivityName="fyp.generalbusinessgame.Activity.LoginActivity">
             <meta-data
@@ -46,18 +50,22 @@
         </activity>
         <activity
             android:name="fyp.generalbusinessgame.Activity.GameTypeSelectionActivity"
+            android:screenOrientation="portrait"
             android:label="Game Types" />
         <activity
             android:name="fyp.generalbusinessgame.Activity.GameSummaryActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="fyp.generalbusinessgame.Activity.BalanceSheetActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_balance_sheet"
             android:theme="@style/FullscreenTheme" />
         <activity
             android:name="fyp.generalbusinessgame.Activity.IncomeStatementActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan"
             android:label="@string/title_activity_income_statement"
             android:theme="@style/FullscreenTheme" />

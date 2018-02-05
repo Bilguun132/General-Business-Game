@@ -20,6 +20,11 @@ public class IncomeStatementModel extends BaseModel implements Serializable  {
     public ArrayList<MarketingDecisionsModel> marketingDecisions = new ArrayList<MarketingDecisionsModel>();
     public ArrayList<ProductionDecisionsModel> productionDecisions = new ArrayList<ProductionDecisionsModel>();
     public String productionCost;
-    public String otherCost ;
+    public String operatingProfit;
+    public String rentSalary;
+    public String stInterestExpense;
+    public String ltInterestExpense;
+    public String totalInterestExpense;
+    public String tax;
     public String totalProfit ;
 }

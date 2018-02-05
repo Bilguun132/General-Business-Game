@@ -182,16 +182,26 @@ public class IncomeStatementActivity extends AppCompatActivity {
 
     private void updateIncomeStatement() {
 
-        EditText totalRevenue = (EditText) findViewById(R.id.finance_total_revenue);
+        android.support.v7.widget.AppCompatTextView totalRevenue = (android.support.v7.widget.AppCompatTextView) findViewById(R.id.finance_total_revenue);
         totalRevenue.setText(incomeStatementModel.totalRevenue);
-        EditText productionCost = (EditText) findViewById(R.id.finance_production_cost);
+        android.support.v7.widget.AppCompatTextView productionCost = (android.support.v7.widget.AppCompatTextView) findViewById(R.id.finance_production_cost);
         productionCost.setText(incomeStatementModel.productionCost);
-        EditText fixedCost = (EditText) findViewById(R.id.finance_fixed_cost);
-        fixedCost.setText(incomeStatementModel.otherCost);
-        EditText rndCost = (EditText) findViewById(R.id.finance_rnd_cost);
+        android.support.v7.widget.AppCompatTextView fixedCost = (android.support.v7.widget.AppCompatTextView) findViewById(R.id.finance_fixed_cost);
+        fixedCost.setText(incomeStatementModel.rentSalary);
+        android.support.v7.widget.AppCompatTextView rndCost = (android.support.v7.widget.AppCompatTextView) findViewById(R.id.finance_rnd_cost);
         rndCost.setText(incomeStatementModel.rndCost);
-        EditText profit = (EditText) findViewById(R.id.finance_net_profit);
+        android.support.v7.widget.AppCompatTextView profit = (android.support.v7.widget.AppCompatTextView) findViewById(R.id.finance_net_profit);
         profit.setText(incomeStatementModel.totalProfit);
+        android.support.v7.widget.AppCompatTextView operatingProfit = (android.support.v7.widget.AppCompatTextView) findViewById(R.id.finance_operating_profit);
+        operatingProfit.setText(incomeStatementModel.operatingProfit);
+        android.support.v7.widget.AppCompatTextView stInterest = (android.support.v7.widget.AppCompatTextView) findViewById(R.id.finance_st_loan_interest);
+        stInterest.setText(incomeStatementModel.stInterestExpense);
+        android.support.v7.widget.AppCompatTextView ltInterest = (android.support.v7.widget.AppCompatTextView) findViewById(R.id.finance_lt_loan_interest);
+        ltInterest.setText(incomeStatementModel.ltInterestExpense);
+        android.support.v7.widget.AppCompatTextView totalInterest = (android.support.v7.widget.AppCompatTextView) findViewById(R.id.finance_total_interest);
+        totalInterest.setText(incomeStatementModel.totalInterestExpense);
+        android.support.v7.widget.AppCompatTextView tax = (android.support.v7.widget.AppCompatTextView) findViewById(R.id.finance_taxes);
+        tax.setText(incomeStatementModel.tax);
     }
 
     @Override

@@ -26,6 +26,8 @@ import com.android.volley.toolbox.Volley;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
+import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.github.mikephil.charting.charts.LineChart;
@@ -44,14 +46,6 @@ import fyp.generalbusinessgame.Models.IncomeStatementModel;
 import fyp.generalbusinessgame.Models.MarketingDecisionsListModel;
 import fyp.generalbusinessgame.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link MarketingFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link MarketingFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class MarketingFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -71,14 +65,6 @@ public class MarketingFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment MarketingFragment.
-     */
     // TODO: Rename and change types and number of parameters
     public static MarketingFragment newInstance(String param1, String param2) {
         MarketingFragment fragment = new MarketingFragment();
@@ -192,7 +178,7 @@ public class MarketingFragment extends Fragment {
 // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(getActivity());
         int periodId;
-        if (gamePeriodModel.endTime == null) periodId = gamePeriodModel.previousPeriodId;
+        if (gamePeriodModel.endTime == null && gamePeriodModel.previousPeriodId != 0) periodId = gamePeriodModel.previousPeriodId;
         else periodId = gamePeriodModel.id;
         String url = domainName + subdomainName + getString(R.string.get_firm_info_by_firm_id) + firmId + "/incomeStatement/" + periodId;
 
@@ -211,12 +197,21 @@ public class MarketingFragment extends Fragment {
                         newDummyContent.ITEMS.clear();
                         LineChart chart = (LineChart) mainview.findViewById(R.id.chart);
                         List<Entry> prices = new ArrayList<Entry>();
+                        List<Entry> marketShareChange = new ArrayList<Entry>();
                         for (int i = 0; i < incomeStatementModel.marketingDecisions.size(); i++) {
                             newDummyContent.ITEMS.add(new DummyContent.DummyItem("Price Change", incomeStatementModel.marketingDecisions.get(i).price, "Market Change"));
-                            prices.add(new Entry(Float.parseFloat(incomeStatementModel.marketingDecisions.get(i).price), i+1));
+                            prices.add(new Entry( i+1, Float.parseFloat(incomeStatementModel.marketingDecisions.get(i).price)));
+                            marketShareChange.add(new Entry(i+1, incomeStatementModel.marketingDecisions.get(i).marketShareQtyChange));
                         }
-                        LineDataSet dataSet = new LineDataSet(prices, "Price Change");
-                        LineData lineData = new LineData(dataSet);
+                        LineDataSet priceDataSet = new LineDataSet(prices, "Price Change");
+                        LineDataSet marketDataSet = new LineDataSet(marketShareChange, "Market Share Change");
+                        ArrayList<ILineDataSet> dataSets = new ArrayList<ILineDataSet>();
+                        dataSets.add(priceDataSet);
+                        dataSets.add(marketDataSet);
+                        ((LineDataSet) dataSets.get(0)).enableDashedLine(10, 10, 0);
+                        ((LineDataSet) dataSets.get(0)).setColors(ColorTemplate.VORDIPLOM_COLORS);
+                        ((LineDataSet) dataSets.get(0)).setCircleColors(ColorTemplate.VORDIPLOM_COLORS);
+                        LineData lineData = new LineData(dataSets);
                         chart.setData(lineData);
                         chart.invalidate(); // refresh
                         newList.dummyContent = newDummyContent;

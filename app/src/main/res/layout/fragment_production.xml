@@ -42,10 +42,10 @@
 
         <android.support.v7.widget.AppCompatButton
             android:id="@+id/production_change_production_quantity_button"
+            style="@android:style/Widget.Material.Button.Colored"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="0dp"
-            android:background="#d67601"
             android:clickable="true"
             android:foreground="?attr/selectableItemBackground"
             android:text="Adjust production quantity"

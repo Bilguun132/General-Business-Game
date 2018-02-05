@@ -13,4 +13,5 @@ public class MarketingDecisionsModel extends BaseModel implements Serializable {
     public int firmLinkId;
     public int userLinkId;
     public int periodLinkId;
+    public Float marketShareQtyChange;
 }

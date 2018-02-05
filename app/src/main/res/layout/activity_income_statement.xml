@@ -49,21 +49,47 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:text="Total Revenue"
-                        android:textAlignment="center"
+                        android:text="Revenue"
+                        android:textAlignment="viewStart"
                         android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Menu"
                         android:textSize="18sp" />
 
-                    <EditText
+                    <android.support.v7.widget.AppCompatTextView
                         android:id="@+id/finance_total_revenue"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:inputType="none"
                         android:text="10000.00"
-                        android:textAlignment="center"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionMode.Subtitle" />
+                        android:textAlignment="viewEnd"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Menu"
+                        android:textSize="16sp" />
 
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:text="COGS"
+                        android:textAlignment="viewStart"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Menu"
+                        android:textSize="18sp" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/finance_production_cost"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="none"
+                        android:textAlignment="viewEnd"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Menu"
+                        android:textSize="16sp" />
                 </TableRow>
 
                 <TableRow
@@ -76,20 +102,21 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:text="Production Cost"
-                        android:textAlignment="center"
+                        android:text="Operating Profit"
+                        android:textAlignment="viewStart"
                         android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Menu"
                         android:textSize="18sp" />
 
-                    <EditText
-                        android:id="@+id/finance_production_cost"
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/finance_operating_profit"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:inputType="none"
                         android:text="3000.00"
-                        android:textAlignment="center"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionMode.Subtitle" />
+                        android:textAlignment="textEnd"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Menu"
+                        android:textSize="16sp" />
                 </TableRow>
 
                 <TableRow
@@ -102,20 +129,21 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:text="Fixed Costs"
-                        android:textAlignment="center"
+                        android:text="Rent / Salary"
+                        android:textAlignment="viewStart"
                         android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Menu"
                         android:textSize="18sp" />
 
-                    <EditText
+                    <android.support.v7.widget.AppCompatTextView
                         android:id="@+id/finance_fixed_cost"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:inputType="none"
                         android:text="3000.00"
-                        android:textAlignment="center"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionMode.Subtitle" />
+                        android:textAlignment="textEnd"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Menu"
+                        android:textSize="16sp" />
                 </TableRow>
 
                 <TableRow
@@ -128,20 +156,125 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:text="RnD Cost"
-                        android:textAlignment="center"
+                        android:text="RnD Expense"
+                        android:textAlignment="viewStart"
                         android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Menu"
                         android:textSize="18sp" />
 
-                    <EditText
+                    <android.support.v7.widget.AppCompatTextView
                         android:id="@+id/finance_rnd_cost"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:inputType="none"
                         android:text="3000.00"
-                        android:textAlignment="center"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionMode.Subtitle" />
+                        android:textAlignment="textEnd"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Menu"
+                        android:textSize="16sp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:text="ST Loan Interest"
+                        android:textAlignment="viewStart"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Menu"
+                        android:textSize="18sp" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/finance_st_loan_interest"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="none"
+                        android:text="1000"
+                        android:textAlignment="viewStart"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Menu"
+                        android:textSize="16sp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:text="LT Loan Interest"
+                        android:textAlignment="viewStart"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Menu"
+                        android:textSize="18sp" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/finance_lt_loan_interest"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="none"
+                        android:text="3000.00"
+                        android:textAlignment="viewStart"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Menu"
+                        android:textSize="16sp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:text="Total Interest"
+                        android:textAlignment="viewStart"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Menu"
+                        android:textSize="18sp" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/finance_total_interest"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="none"
+                        android:text="4000"
+                        android:textAlignment="textEnd"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Menu"
+                        android:textSize="16sp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:text="Tax (35%)"
+                        android:textAlignment="viewStart"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Menu"
+                        android:textSize="18sp" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/finance_taxes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="none"
+                        android:text="7000.00"
+                        android:textAlignment="textEnd"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Menu"
+                        android:textSize="16sp" />
                 </TableRow>
 
                 <TableRow
@@ -154,20 +287,21 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:text="Profit"
-                        android:textAlignment="center"
+                        android:text="Net Profit (Loss)"
+                        android:textAlignment="viewStart"
                         android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Menu"
                         android:textSize="18sp" />
 
-                    <EditText
+                    <android.support.v7.widget.AppCompatTextView
                         android:id="@+id/finance_net_profit"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:inputType="none"
                         android:text="7000.00"
-                        android:textAlignment="center"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionMode.Subtitle" />
+                        android:textAlignment="textEnd"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Menu"
+                        android:textSize="16sp" />
                 </TableRow>
 
             </TableLayout>
