@@ -1,58 +1,56 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id ="@+id/production_fragment_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="fyp.generalbusinessgame.Activity.ProductionFragment">
 
-    <FrameLayout
-        android:id="@+id/production_history_layout"
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/prodChart"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="100dp"
-        android:orientation="vertical">
+        android:layout_above="@+id/production_decisions_table">
 
+    </com.github.mikephil.charting.charts.LineChart>
 
-    </FrameLayout>
-
-    <LinearLayout
-        android:id="@+id/production_decisions_layout"
+    <TableLayout
+        android:id="@+id/production_decisions_table"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="bottom"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom">
 
-        <android.support.design.widget.TextInputLayout
+        <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="visible">
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="2">
 
             <EditText
                 android:id="@+id/production_quantity"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:drawableTint="#FF4081"
-                android:hint="Production Quantity"
-                android:inputType="text"
+                android:hint="Production Qty"
+                android:inputType="numberDecimal"
                 android:maxLines="1" />
 
-        </android.support.design.widget.TextInputLayout>
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/production_change_production_quantity_button"
+                style="@android:style/Widget.Material.Button.Colored"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:text="Adjust Qty"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="18sp" />
 
+        </TableRow>
 
-        <android.support.v7.widget.AppCompatButton
-            android:id="@+id/production_change_production_quantity_button"
-            style="@android:style/Widget.Material.Button.Colored"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
-            android:clickable="true"
-            android:foreground="?attr/selectableItemBackground"
-            android:text="Adjust production quantity"
-            android:textAllCaps="false"
-            android:textColor="#fff"
-            android:textSize="18sp" />
+    </TableLayout>
 
-    </LinearLayout>
-
-</FrameLayout>
+</RelativeLayout>

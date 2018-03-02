@@ -71,15 +71,14 @@
                 android:tooltipText="Join Game"
                 app:srcCompat="@drawable/icons8_signin_48px_1" />
 
-            <TextView
-                android:id="@+id/textView"
+            <EditText
+                android:id="@+id/editText"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center "
-                android:layout_gravity="center"
-                android:text="TextView"
-                android:textAlignment="center"
-                tools:text="Join the game" />
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Join Game" />
 
         </LinearLayout>
 

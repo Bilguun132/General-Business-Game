@@ -196,6 +196,7 @@ public class MarketingFragment extends Fragment {
                         DummyContent newDummyContent = new DummyContent();
                         newDummyContent.ITEMS.clear();
                         LineChart chart = (LineChart) mainview.findViewById(R.id.chart);
+                        LineChart priceChart = (LineChart) mainview.findViewById(R.id.priceChart);
                         List<Entry> prices = new ArrayList<Entry>();
                         List<Entry> marketShareChange = new ArrayList<Entry>();
                         for (int i = 0; i < incomeStatementModel.marketingDecisions.size(); i++) {
@@ -203,21 +204,30 @@ public class MarketingFragment extends Fragment {
                             prices.add(new Entry( i+1, Float.parseFloat(incomeStatementModel.marketingDecisions.get(i).price)));
                             marketShareChange.add(new Entry(i+1, incomeStatementModel.marketingDecisions.get(i).marketShareQtyChange));
                         }
-                        LineDataSet priceDataSet = new LineDataSet(prices, "Price Change");
-                        LineDataSet marketDataSet = new LineDataSet(marketShareChange, "Market Share Change");
-                        ArrayList<ILineDataSet> dataSets = new ArrayList<ILineDataSet>();
-                        dataSets.add(priceDataSet);
-                        dataSets.add(marketDataSet);
-                        ((LineDataSet) dataSets.get(0)).enableDashedLine(10, 10, 0);
-                        ((LineDataSet) dataSets.get(0)).setColors(ColorTemplate.VORDIPLOM_COLORS);
-                        ((LineDataSet) dataSets.get(0)).setCircleColors(ColorTemplate.VORDIPLOM_COLORS);
-                        LineData lineData = new LineData(dataSets);
-                        chart.setData(lineData);
-                        chart.invalidate(); // refresh
-                        newList.dummyContent = newDummyContent;
-                        transaction.replace(R.id.marketing_history_layout, newList);
-                        transaction.commit();
-
+                        if (newDummyContent.ITEMS.size() > 0) {
+                            LineDataSet priceDataSet = new LineDataSet(prices, "Price Change");
+                            priceDataSet.setLineWidth(5);
+                            priceDataSet.setValueTextSize(10);
+                            LineDataSet marketDataSet = new LineDataSet(marketShareChange, "Expected Quantity Change");
+                            marketDataSet.setLineWidth(5);
+                            marketDataSet.setValueTextSize(10);
+                            ArrayList<ILineDataSet> dataSets = new ArrayList<ILineDataSet>();
+                            ArrayList<ILineDataSet> priceDataSets = new ArrayList<ILineDataSet>();
+                            dataSets.add(marketDataSet);
+                            priceDataSets.add(priceDataSet);
+                            ((LineDataSet) dataSets.get(0)).enableDashedLine(10, 10, 0);
+                            ((LineDataSet) dataSets.get(0)).setColors(ColorTemplate.VORDIPLOM_COLORS);
+                            ((LineDataSet) dataSets.get(0)).setCircleColors(ColorTemplate.VORDIPLOM_COLORS);
+                            LineData lineData = new LineData(dataSets);
+                            LineData lineData1 = new LineData(priceDataSets);
+                            chart.setData(lineData);
+                            chart.invalidate(); // refresh
+                            priceChart.setData(lineData1);
+                            priceChart.invalidate(); // refresh
+                            newList.dummyContent = newDummyContent;
+                            transaction.replace(R.id.marketing_history_layout, newList);
+                            transaction.commit();
+                        }
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -234,10 +244,17 @@ public class MarketingFragment extends Fragment {
     public void updateFirmMarketInfo() {
         EditText productionSellingPrice = (EditText) mainview.findViewById(R.id.marketing_selling_price);
         productionSellingPrice.setText(gameFirmInfoModel.productionPrice.toString());
-        EditText productionMarketShareDemand = (EditText) mainview.findViewById(R.id.marketing_market_share_quantity);
-        productionMarketShareDemand.setText(gameFirmInfoModel.marketShare.toString());
-        EditText productionMarketSharePercentage = (EditText) mainview.findViewById(R.id.marketing_market_share);
-        productionMarketSharePercentage.setText(df2.format(gameFirmInfoModel.marketSharePercentage).toString());
+
+        if (gameFirmInfoModel.marketShare != null){
+            EditText productionMarketShareDemand = (EditText) mainview.findViewById(R.id.marketing_market_share_quantity);
+            productionMarketShareDemand.setText(gameFirmInfoModel.marketShare.toString());
+        }
+
+        if (gameFirmInfoModel.marketSharePercentage != null) {
+            EditText productionMarketSharePercentage = (EditText) mainview.findViewById(R.id.marketing_market_share);
+            productionMarketSharePercentage.setText(df2.format(gameFirmInfoModel.marketSharePercentage).toString());
+        }
+
     }
     
     private void changePriceClicked(final View view) {
@@ -254,6 +271,7 @@ public class MarketingFragment extends Fragment {
 
                         Snackbar.make(view, "Selling price changed",
                                 Snackbar.LENGTH_LONG).show();
+                        getIncomeStatement();
                         getMarketInfoRequest();
                     }
                 }, new Response.ErrorListener() {

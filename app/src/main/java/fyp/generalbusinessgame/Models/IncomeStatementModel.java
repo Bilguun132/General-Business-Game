@@ -1,6 +1,7 @@
 package fyp.generalbusinessgame.Models;
 
 import java.io.Serializable;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -19,6 +20,7 @@ public class IncomeStatementModel extends BaseModel implements Serializable  {
     public String rndCost;
     public ArrayList<MarketingDecisionsModel> marketingDecisions = new ArrayList<MarketingDecisionsModel>();
     public ArrayList<ProductionDecisionsModel> productionDecisions = new ArrayList<ProductionDecisionsModel>();
+    public ArrayList<FinanceDecisionsModel> financeDecisions = new ArrayList<FinanceDecisionsModel>();
     public String productionCost;
     public String operatingProfit;
     public String rentSalary;

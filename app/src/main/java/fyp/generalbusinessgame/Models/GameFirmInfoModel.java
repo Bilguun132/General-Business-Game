@@ -16,4 +16,6 @@ public class GameFirmInfoModel extends BaseModel implements Serializable  {
     public Double marketShare = 0.00;
     public Double marketSharePercentage = 0.00;
     public int gameLinkId = 0;
+    public String stLoanLimit;
+    public String ltLoanLimit;
 }

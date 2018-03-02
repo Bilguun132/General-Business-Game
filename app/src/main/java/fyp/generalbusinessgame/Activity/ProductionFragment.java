@@ -21,10 +21,18 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
+import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import fyp.generalbusinessgame.Activity.dummy.DummyContent;
@@ -117,10 +125,10 @@ public class ProductionFragment extends Fragment {
                 subdomainName = getString(R.string.subdomain_name);
             }
         }
-
+        getIncomeStatement();
         getActivity().setTitle("Production Summary. Period: " + gamePeriodModel.periodNumber);
 
-      //  getIncomeStatement();
+
 
         double productionCost = 0;
         for (int i = 0; i < costListModel.costingList.size(); i++) {
@@ -144,7 +152,7 @@ public class ProductionFragment extends Fragment {
 // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(getActivity());
         int periodId;
-        if (gamePeriodModel.endTime == null) periodId = gamePeriodModel.previousPeriodId;
+        if (gamePeriodModel.endTime == null && gamePeriodModel.previousPeriodId != 0) periodId = gamePeriodModel.previousPeriodId;
         else periodId = gamePeriodModel.id;
         String url = domainName + subdomainName + getString(R.string.get_firm_info_by_firm_id) + firmId + "/incomeStatement/" + periodId;
 
@@ -156,17 +164,25 @@ public class ProductionFragment extends Fragment {
 
                         Gson gson = new GsonBuilder().create();
                         incomeStatementModel = gson.fromJson(response, IncomeStatementModel.class);
-                        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                        FragmentTransaction transaction = fragmentManager.beginTransaction();
-                        ListFragment newList = new ListFragment();
-                        DummyContent newDummyContent = new DummyContent();
-                        newDummyContent.ITEMS.clear();
-                        for (int i = 0; i < incomeStatementModel.productionDecisions.size(); i++) {
-                            newDummyContent.ITEMS.add(new DummyContent.DummyItem("Production Change", "Changed", "Market Change"));
+                        if (incomeStatementModel.productionDecisions.size() > 0) {
+                            LineChart chart = (LineChart) mainview.findViewById(R.id.prodChart);
+                            List<Entry> prodQtys = new ArrayList<Entry>();
+                            for (int i = 0; i < incomeStatementModel.productionDecisions.size(); i++) {
+                                prodQtys.add(new Entry( i+1, Float.parseFloat(incomeStatementModel.productionDecisions.get(i).productionQuantity)));
+                            }
+                            LineDataSet prodDataSets = new LineDataSet(prodQtys, "Prod QTY");
+                            prodDataSets.setLineWidth(5);
+                            prodDataSets.setValueTextSize(10);
+                            ArrayList<ILineDataSet> dataSets = new ArrayList<ILineDataSet>();
+                            dataSets.add(prodDataSets);
+                            ((LineDataSet) dataSets.get(0)).enableDashedLine(10, 10, 0);
+                            ((LineDataSet) dataSets.get(0)).setColors(ColorTemplate.VORDIPLOM_COLORS);
+                            ((LineDataSet) dataSets.get(0)).setCircleColors(ColorTemplate.VORDIPLOM_COLORS);
+                            LineData lineData = new LineData(dataSets);
+                            chart.setData(lineData);
+                            chart.invalidate(); // refresh
                         }
-                        newList.dummyContent = newDummyContent;
-                        transaction.replace(R.id.marketing_history_layout, newList);
-                        transaction.commit();
+
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -194,7 +210,7 @@ public class ProductionFragment extends Fragment {
 
                         Snackbar.make(view, "Production Qty changed",
                                 Snackbar.LENGTH_LONG).show();
-
+                        getIncomeStatement();
                     }
                 }, new Response.ErrorListener() {
             @Override
